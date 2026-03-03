@@ -1,67 +1,86 @@
-TS6 Modern Overlay
+🎙️ TS6 Dynamic Overlay
 
-A modern and minimalist desktop overlay developed for TeamSpeak 6 (TS6), featuring Discord-style game detection.
+A lightweight, modern, and smart overlay for TeamSpeak 6. This application automatically detects when you are in-game and provides a real-time status overlay of your TeamSpeak channel, including nicknames, talking status, mute indicators, and live latency (ping) tracking.
 
-Developer: NooXRii
+✨ Features
 
-🚀 Features
+🎮 Smart Visibility: Automatically shows the overlay when a game from your list is running and hides it when you quit.
 
-Modern Design: Rounded corners, deep anthracite color palette, and fluid visual feedback.
+📶 Live Ping Tracking: Real-time latency display for every user in the channel.
 
-Discord-style Game Detection: The overlay automatically appears only when one of the games in the list is running. It hides itself when the game is closed.
+🟢 Normal: Below 70ms
 
-Auto-Shutdown: Automatically closes when TeamSpeak 6 is shut down to prevent unnecessary system resource usage.
+🟠 Warning: 70ms - 120ms
 
-Smart Status Tracking:
+🔴 High: Above 120ms
 
-Talking Status: Active speakers are highlighted with a green glow.
+⚙️ Settings Interface: A built-in GUI to easily add or remove games by selecting their .exe files.
 
-Mute Status: A red icon appears next to users who have their microphone muted.
+💾 Persistence: Your game list and API keys are saved locally (ts6_games.json, ts6_key.txt), so you don't have to re-configure every time.
 
-API Key Registration System: Prevents TeamSpeak 6 from asking for permission every time. It saves the API key to a local file after the initial approval.
+🖱️ Draggable & Transparent: Toggle "Drag Mode" from the system tray to reposition the overlay anywhere on your screen.
 
-System Tray Support: Can be managed via the icon in the bottom right corner; you can enable dragging or close the application.
+🔇 Mute Indicators: Visual feedback for users who have their microphone or speakers muted.
 
-Performance Friendly: Low CPU and memory usage powered by psutil and websockets.
+🚀 System Tray Integration: Manage everything from the taskbar without cluttering your workspace.
 
-🛠 Installation
+🛠️ Installation
 
-Python Required: Ensure that Python 3.10 or a later version is installed on your computer.
+Clone the repository:
 
-Required Libraries: Open your Terminal or CMD and run the following command:
-
-pip install websockets psutil pystray Pillow
-
-
-Icon File: An icon file named tsoverlay.ico must be present in the directory for the application to function properly (if missing, the system will create a default icon).
-
-🎮 Usage
-
-Open TeamSpeak 6: Ensure that the Remote Control API is enabled.
-
-Run the Application:
-
-python ts6_overlay.py
+git clone [https://github.com/yourusername/ts6-dynamic-overlay.git](https://github.com/yourusername/ts6-dynamic-overlay.git)
+cd ts6-dynamic-overlay
 
 
-Grant Permission: On the first run, a confirmation prompt will appear inside TeamSpeak 6. Click "Allow". This is a one-time process.
+Install dependencies:
 
-Enter a Game: The overlay is hidden by default. It will automatically appear when you enter a game defined in the GAME_LIST (e.g., CS2, Valorant, Genshin, etc.).
-
-⚙️ Configuration
-
-You can add the .exe names of the games you want to the GAME_LIST variable inside the ts6_overlay.py file:
-
-GAME_LIST = [
-    "cs2.exe", 
-    "valorant.exe", 
-    "genshinimpact.exe",
-    # Add your own games here
-]
+pip install websockets pystray pillow psutil
 
 
-📜 License
+Run the application:
 
-This project was developed for educational and personal use. You are welcome to submit a "Pull Request" to contribute to its development.
+python ts6_overlay_test.py
+
+
+🚀 How to Use
+
+Launch TeamSpeak 6: Ensure the Remote Control API is active.
+
+Start the Overlay: Run the script. If it's your first time, it will request permission in TeamSpeak 6 to connect.
+
+Configure Games: -   Right-click the icon in the System Tray.
+
+Select "Settings".
+
+Click "Add Game (.exe)" and select the executable of your favorite game.
+
+Reposition: -   Right-click the tray icon and toggle "Enable Dragging".
+
+Move the overlay to your preferred location.
+
+Disable dragging to make it "click-through" again.
+
+📁 File Structure
+
+ts6_overlay_test.py: The main application logic.
+
+ts6_games.json: Stores your custom game list.
+
+ts6_key.txt: Stores your TeamSpeak API key securely.
+
+tsoverlay.ico: Application icon (if provided).
+
+📝 Requirements
+
+Windows OS
+
+Python 3.10 or higher
+
+TeamSpeak 6 Client
+
+🤝 Contributing
+
+Feel free to fork this project and submit pull requests for any features or bug fixes!
+
 
 Developed by NooXRii.
