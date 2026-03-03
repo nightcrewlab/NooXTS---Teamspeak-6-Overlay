@@ -1,67 +1,67 @@
 TS6 Modern Overlay
 
-TeamSpeak 6 (TS6) için geliştirilmiş, Discord tarzı oyun algılama özelliğine sahip, modern ve minimalist bir kullanıcı arayüzü sunan masaüstü overlay uygulamasıdır.
+A modern and minimalist desktop overlay developed for TeamSpeak 6 (TS6), featuring Discord-style game detection.
 
-Geliştirici: NooXRii
+Developer: NooXRii
 
-🚀 Özellikler
+🚀 Features
 
-Modern Tasarım: Yuvarlatılmış köşeler, derin antrasit renk paleti ve akıcı görsel geri bildirimler.
+Modern Design: Rounded corners, deep anthracite color palette, and fluid visual feedback.
 
-Discord Tarzı Oyun Algılama: Overlay, sadece listedeki oyunlardan biri çalıştığında otomatik olarak görünür hale gelir. Oyun kapandığında kendini gizler.
+Discord-style Game Detection: The overlay automatically appears only when one of the games in the list is running. It hides itself when the game is closed.
 
-Otomatik Kapanma: TeamSpeak 6 kapandığında overlay de sistem kaynaklarını yormamak için kendini otomatik olarak kapatır.
+Auto-Shutdown: Automatically closes when TeamSpeak 6 is shut down to prevent unnecessary system resource usage.
 
-Akıllı Durum Takibi:
+Smart Status Tracking:
 
-Konuşma Durumu: Konuşan kişiler yeşil bir parlamayla vurgulanır.
+Talking Status: Active speakers are highlighted with a green glow.
 
-Mute (Susturma): Mikrofonu kapalı olan kişilerin yanında kırmızı bir simge belirir.
+Mute Status: A red icon appears next to users who have their microphone muted.
 
-API Key Kayıt Sistemi: TeamSpeak 6'nın her açılışta izin sormasını engeller. İlk onaydan sonra API anahtarını yerel bir dosyada saklar.
+API Key Registration System: Prevents TeamSpeak 6 from asking for permission every time. It saves the API key to a local file after the initial approval.
 
-Sistem Tepsisi (Tray) Desteği: Sağ alt köşedeki ikon üzerinden yönetilebilir, taşımayı etkinleştirebilir veya kapatabilirsiniz.
+System Tray Support: Can be managed via the icon in the bottom right corner; you can enable dragging or close the application.
 
-Performans Dostu: psutil ve websockets kullanarak düşük işlemci ve bellek kullanımı sağlar.
+Performance Friendly: Low CPU and memory usage powered by psutil and websockets.
 
-🛠 Kurulum
+🛠 Installation
 
-Python Yüklü Olmalıdır: Bilgisayarınızda Python 3.10 veya üzeri bir sürümün yüklü olduğundan emin olun.
+Python Required: Ensure that Python 3.10 or a later version is installed on your computer.
 
-Gerekli Kütüphaneler: Terminal veya CMD ekranını açarak aşağıdaki komutu çalıştırın:
+Required Libraries: Open your Terminal or CMD and run the following command:
 
 pip install websockets psutil pystray Pillow
 
 
-İkon Dosyası: Uygulamanın çalışması için dizinde tsoverlay.ico adında bir ikon dosyası bulunmalıdır (Eğer yoksa sistem varsayılan bir ikon oluşturur).
+Icon File: An icon file named tsoverlay.ico must be present in the directory for the application to function properly (if missing, the system will create a default icon).
 
-🎮 Kullanım
+🎮 Usage
 
-TeamSpeak 6'yı Açın: Remote Control API'nin aktif olduğundan emin olun.
+Open TeamSpeak 6: Ensure that the Remote Control API is enabled.
 
-Uygulamayı Çalıştırın:
+Run the Application:
 
 python ts6_overlay.py
 
 
-İzin Verin: İlk çalıştırmada TeamSpeak 6 içinde bir onay kutusu çıkacaktır. "Kabul Et" (Allow) seçeneğine tıklayın. Bu işlem bir kez yapılır.
+Grant Permission: On the first run, a confirmation prompt will appear inside TeamSpeak 6. Click "Allow". This is a one-time process.
 
-Oyuna Girin: Overlay varsayılan olarak gizlidir. GAME_LIST içinde tanımlı bir oyuna (örneğin CS2, Valorant, Genshin vb.) girdiğinizde otomatik olarak belirecektir.
+Enter a Game: The overlay is hidden by default. It will automatically appear when you enter a game defined in the GAME_LIST (e.g., CS2, Valorant, Genshin, etc.).
 
-⚙️ Yapılandırma
+⚙️ Configuration
 
-ts6_overlay.py dosyası içindeki GAME_LIST değişkenine istediğiniz oyunların .exe isimlerini ekleyebilirsiniz:
+You can add the .exe names of the games you want to the GAME_LIST variable inside the ts6_overlay.py file:
 
 GAME_LIST = [
     "cs2.exe", 
     "valorant.exe", 
     "genshinimpact.exe",
-    # Buraya kendi oyunlarınızı ekleyebilirsiniz
+    # Add your own games here
 ]
 
 
-📜 Lisans
+📜 License
 
-Bu proje eğitim ve kişisel kullanım amacıyla geliştirilmiştir. Geliştirilmesine katkıda bulunmak için "Pull Request" gönderebilirsiniz.
+This project was developed for educational and personal use. You are welcome to submit a "Pull Request" to contribute to its development.
 
-NooXRii tarafından geliştirildi.
+Developed by NooXRii.
