@@ -1,3 +1,5 @@
+[**Coffee for me**](https://patreon.com/nooxrii?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink)
+
 # 🎙️ NooXTS — TeamSpeak 6 Overlay
 
 A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects when you're in-game and displays a real-time overlay showing only the users in **your current channel** — including nicknames, talking status, mute indicators, and screenshare indicators.
