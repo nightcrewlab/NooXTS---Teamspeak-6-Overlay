@@ -3,7 +3,7 @@
 This project is developed independently.  
 If you'd like to support future updates and new features:
 
-☕ **[Buy Me a Coffee](https://buymeacoffee.com/nooxrii)**
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-orange?style=for-the-badge&logo=buymeacoffee)](https://buymeacoffee.com/nooxrii)
 
 Your support helps keep development going 🚀
 
