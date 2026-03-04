@@ -1,4 +1,4 @@
-[**BUY COFFEE FOR ME**](https://buymeacoffee.com/nooxrii)
+[**BUY ME A COFFEE**](https://buymeacoffee.com/nooxrii)
 
 # 🎙️ NooXTS — TeamSpeak 6 Overlay
 
