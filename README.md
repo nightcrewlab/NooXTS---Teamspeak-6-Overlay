@@ -1,86 +1,125 @@
-🎙️ TS6 Dynamic Overlay
+# 🎙️ NooXTS — TeamSpeak 6 Overlay
 
-A lightweight, modern, and smart overlay for TeamSpeak 6. This application automatically detects when you are in-game and provides a real-time status overlay of your TeamSpeak channel, including nicknames, talking status, mute indicators, and live latency (ping) tracking.
+A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects when you're in-game and displays a real-time overlay showing only the users in **your current channel** — including nicknames, talking status, mute indicators, and screenshare indicators.
 
-✨ Features
+---
 
-🎮 Smart Visibility: Automatically shows the overlay when a game from your list is running and hides it when you quit.
+## ✨ Features
 
-📶 Live Ping Tracking: Real-time latency display for every user in the channel.
+| Feature | Description |
+|---|---|
+| 🎮 **Smart Visibility** | Automatically shows when a game from your list is running, hides when you quit |
+| 🔊 **Talking Indicators** | Green highlight and dot when a user is actively speaking |
+| 🔇 **Mute Indicators** | Visual 🔇 icon for muted users |
+| 🖥️ **Screenshare Indicators** | Purple 🖥 icon appears next to anyone sharing their screen |
+| 📡 **Channel Filtering** | Only shows users in **your exact channel** — subchannel aware |
+| 🔄 **Auto-Update** | Checks GitHub on startup, downloads and applies updates via a console updater |
+| ⚙️ **Settings Interface** | Built-in GUI to add/remove games by selecting their `.exe` files |
+| 💾 **Persistence** | Game list and API key saved locally, no reconfiguration needed |
+| 🖱️ **Draggable & Click-Through** | Toggle Drag Mode from the system tray to reposition anywhere |
+| 🚀 **System Tray Integration** | Manage everything from the taskbar |
+| 🔑 **Auto API Key Reset** | API key is wiped and re-requested from TeamSpeak on every update |
 
-🟢 Normal: Below 70ms
+---
 
-🟠 Warning: 70ms - 120ms
+## 📦 Download
 
-🔴 High: Above 120ms
+Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest) page.
 
-⚙️ Settings Interface: A built-in GUI to easily add or remove games by selecting their .exe files.
+| File | Description |
+|---|---|
+| `NooXTSOverlay.exe` | Ready-to-run executable — no Python required |
+| `Source.rar` | Full Python source code (`.py` file + assets) |
 
-💾 Persistence: Your game list and API keys are saved locally (ts6_games.json, ts6_key.txt), so you don't have to re-configure every time.
+---
 
-🖱️ Draggable & Transparent: Toggle "Drag Mode" from the system tray to reposition the overlay anywhere on your screen.
+## 🚀 Quick Start (Executable)
 
-🔇 Mute Indicators: Visual feedback for users who have their microphone or speakers muted.
+1. Download `NooXTSOverlay.exe` from the [latest release](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest)
+2. Place it in its own folder (e.g. `C:\NooXTSOverlay\`)
+3. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
+4. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
+5. Click **Accept** in TeamSpeak
 
-🚀 System Tray Integration: Manage everything from the taskbar without cluttering your workspace.
+---
 
-🛠️ Installation
+## 🛠️ Running from Source
 
-Clone the repository:
+### Requirements
 
-git clone [https://github.com/yourusername/ts6-dynamic-overlay.git](https://github.com/yourusername/ts6-dynamic-overlay.git)
-cd ts6-dynamic-overlay
+- Windows 10/11
+- Python 3.10 or higher
+- TeamSpeak 6 Client
 
+### Install dependencies
 
-Install dependencies:
-
+```bash
 pip install websockets pystray pillow psutil
+```
 
+### Run
 
-Run the application:
+```bash
+python ts6_overlay.py
+```
 
-python ts6_overlay_test.py
+### Build executable yourself
 
+```bash
+pip install pyinstaller
+pyinstaller --onefile --noconsole --icon=tsoverlay.ico --name=NooXTSOverlay ts6_overlay.py
+```
 
-🚀 How to Use
+The compiled `.exe` will be in the `dist/` folder.
 
-Launch TeamSpeak 6: Ensure the Remote Control API is active.
+---
 
-Start the Overlay: Run the script. If it's your first time, it will request permission in TeamSpeak 6 to connect.
+## 🔄 Auto-Update
 
-Configure Games: -   Right-click the icon in the System Tray.
+When a new release is published on GitHub, the overlay will notify you on next launch.
 
-Select "Settings".
+**Update flow:**
+1. New version is detected automatically on startup
+2. A notification window appears with the version info
+3. Click **Download** — the new `.exe` is downloaded to `%TEMP%`
+4. Click **Güncelle →** — a console window opens, the overlay closes, the new file replaces the old one
+5. The overlay restarts automatically
+6. ⚠️ **The TS6 API key is reset** — you will need to re-authorize in TeamSpeak once after each update
 
-Click "Add Game (.exe)" and select the executable of your favorite game.
+---
 
-Reposition: -   Right-click the tray icon and toggle "Enable Dragging".
+## ⚙️ Configuration
 
-Move the overlay to your preferred location.
+### Adding Games
 
-Disable dragging to make it "click-through" again.
+1. Right-click the tray icon → **Ayarlar (Settings)**
+2. Click **Oyun Ekle (.exe)** and select your game's `.exe`
+3. The overlay will now show automatically when that game is running
 
-📁 File Structure
+### Repositioning the Overlay
 
-ts6_overlay_test.py: The main application logic.
+1. Right-click the tray icon → **Taşımayı Etkinleştir (Enable Dragging)**
+2. Drag the overlay to your preferred position
+3. Toggle drag mode off to make it click-through again
 
-ts6_games.json: Stores your custom game list.
+---
 
-ts6_key.txt: Stores your TeamSpeak API key securely.
+## 📁 File Structure
 
-tsoverlay.ico: Application icon (if provided).
+```
+NooXTSOverlay/
+├── NooXTSOverlay.exe     # Main application
+├── ts6_games.json        # Your saved game list (auto-created)
+├── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
+└── tsoverlay.ico         # Tray icon
+```
 
-📝 Requirements
+---
 
-Windows OS
+## 🤝 Contributing
 
-Python 3.10 or higher
+Feel free to fork the project and open pull requests for features or bug fixes.
 
-TeamSpeak 6 Client
+---
 
-🤝 Contributing
-
-Feel free to fork this project and submit pull requests for any features or bug fixes!
-
-
-Developed by NooXRii.
+*Developed by NooXRii*
