@@ -1,4 +1,6 @@
-[**BUY ME A COFFEE**](https://buymeacoffee.com/nooxrii)
+## ☕ Support Me
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-orange?style=for-the-badge&logo=buymeacoffee)](https://buymeacoffee.com/nooxrii)
 
 # 🎙️ NooXTS — TeamSpeak 6 Overlay
 
