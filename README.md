@@ -125,8 +125,7 @@ When a new release is published on GitHub, the overlay will notify you automatic
 NooXTSOverlay/
 ├── NooXTSOverlay.exe     # Main application
 ├── ts6_games.json        # Your saved game list (auto-created)
-├── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
-└── tsoverlay.ico         # Tray icon
+└── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
 ```
 
 ---
