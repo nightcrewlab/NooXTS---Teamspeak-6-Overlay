@@ -21,13 +21,17 @@ A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects 
 | Feature | Description |
 |---|---|
 | 🎮 **Smart Visibility** | Automatically shows when a game from your list is running, hides when you quit |
+| 👁️ **Always Show Mode** | Optionally keep the overlay visible even when no game is running |
 | 🔊 **Talking Indicators** | Green highlight and dot when a user is actively speaking |
 | 🔇 **Mute Indicators** | Visual 🔇 icon for muted users |
 | 🖥️ **Screenshare Indicators** | Purple 🖥 icon appears next to anyone sharing their screen |
 | 📡 **Channel Filtering** | Only shows users in **your exact channel** — updates live as people join or leave |
+| ⚡ **Instant Channel Detection** | Reads your current channel on startup — no need to rejoin |
 | 🔄 **Auto-Update** | Checks GitHub on startup, downloads and applies updates automatically |
+| 🎨 **Appearance Settings** | Adjust opacity, font size, and always-show mode from the Settings window |
+| 📍 **Position Presets** | Snap the overlay to 6 preset positions with one click |
+| 💾 **Position Memory** | Overlay remembers its position between sessions |
 | ⚙️ **Settings Interface** | Built-in GUI to add/remove games by selecting their `.exe` files |
-| 💾 **Persistence** | Game list and API key saved locally, no reconfiguration needed |
 | 🖱️ **Draggable & Click-Through** | Toggle Drag Mode from the system tray to reposition anywhere |
 | 🚀 **System Tray Integration** | Manage everything from the taskbar |
 | 🔑 **Auto API Key Reset** | API key is wiped and re-requested from TeamSpeak on every update |
@@ -53,7 +57,7 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 4. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
 5. Click **Accept** in TeamSpeak
 
-> ⚠️ **Important:** Always keep `NooXTSOverlay.exe` in its own folder. The overlay creates files (`ts6_key.txt`, `ts6_games.json`) alongside the executable.
+> ⚠️ **Important:** Always keep `NooXTSOverlay.exe` in its own folder. The overlay creates config files alongside the executable.
 
 ---
 
@@ -111,11 +115,20 @@ When a new release is published on GitHub, the overlay will notify you automatic
 2. Click **Add Game (.exe)** and select your game's `.exe`
 3. The overlay will now show automatically when that game is running
 
+### Appearance Settings
+
+1. Right-click the tray icon → **Settings** → **🎨 Appearance**
+2. Adjust **opacity** and **font size** using the sliders — changes apply instantly
+3. Enable **Always Show** to keep the overlay visible without a game running
+4. Use **Quick Position** buttons to snap the overlay to any corner or side
+5. Click **💾 Save Settings** to persist your changes
+
 ### Repositioning the Overlay
 
 1. Right-click the tray icon → **Enable Dragging**
 2. Drag the overlay to your preferred position
 3. Toggle drag mode off to make it click-through again
+4. Position is saved automatically when you release the overlay
 
 ---
 
@@ -125,7 +138,8 @@ When a new release is published on GitHub, the overlay will notify you automatic
 NooXTSOverlay/
 ├── NooXTSOverlay.exe     # Main application
 ├── ts6_games.json        # Your saved game list (auto-created)
-└── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
+├── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
+└── ts6_config.json       # Appearance & position settings (auto-created)
 ```
 
 ---
