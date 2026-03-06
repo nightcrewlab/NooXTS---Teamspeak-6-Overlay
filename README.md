@@ -7,6 +7,9 @@ If you'd like to support future updates and new features:
 
 Your support helps keep development going 🚀
 
+## 📥 Download Latest Version
+[![Download Latest](https://img.shields.io/github/v/release/nightcrewlab/NooXTS---Teamspeak-6-Overlay?label=Download%20EXE&style=for-the-badge&color=orange)](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest)
+
 # 🎙️ NooXTS — TeamSpeak 6 Overlay
 
 A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects when you're in-game and displays a real-time overlay showing only the users in **your current channel** — including nicknames, talking status, mute indicators, and screenshare indicators.
