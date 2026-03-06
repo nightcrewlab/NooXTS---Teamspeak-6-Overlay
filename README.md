@@ -21,8 +21,8 @@ A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects 
 | 🔊 **Talking Indicators** | Green highlight and dot when a user is actively speaking |
 | 🔇 **Mute Indicators** | Visual 🔇 icon for muted users |
 | 🖥️ **Screenshare Indicators** | Purple 🖥 icon appears next to anyone sharing their screen |
-| 📡 **Channel Filtering** | Only shows users in **your exact channel** — subchannel aware |
-| 🔄 **Auto-Update** | Checks GitHub on startup, downloads and applies updates via a console updater |
+| 📡 **Channel Filtering** | Only shows users in **your exact channel** — updates live as people join or leave |
+| 🔄 **Auto-Update** | Checks GitHub on startup, downloads and applies updates automatically |
 | ⚙️ **Settings Interface** | Built-in GUI to add/remove games by selecting their `.exe` files |
 | 💾 **Persistence** | Game list and API key saved locally, no reconfiguration needed |
 | 🖱️ **Draggable & Click-Through** | Toggle Drag Mode from the system tray to reposition anywhere |
@@ -45,10 +45,12 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 ## 🚀 Quick Start (Executable)
 
 1. Download `NooXTSOverlay.exe` from the [latest release](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest)
-2. Place it in its own folder (e.g. `C:\NooXTSOverlay\`)
+2. Place it in its own dedicated folder (e.g. `C:\NooXTSOverlay\`)
 3. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
 4. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
 5. Click **Accept** in TeamSpeak
+
+> ⚠️ **Important:** Always keep `NooXTSOverlay.exe` in its own folder. The overlay creates files (`ts6_key.txt`, `ts6_games.json`) alongside the executable.
 
 ---
 
@@ -76,7 +78,7 @@ python ts6_overlay.py
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --noconsole --icon=tsoverlay.ico --name=NooXTSOverlay ts6_overlay.py
+pyinstaller NooXTSOverlay.spec
 ```
 
 The compiled `.exe` will be in the `dist/` folder.
@@ -85,15 +87,16 @@ The compiled `.exe` will be in the `dist/` folder.
 
 ## 🔄 Auto-Update
 
-When a new release is published on GitHub, the overlay will notify you on next launch.
+When a new release is published on GitHub, the overlay will notify you automatically on next launch.
 
 **Update flow:**
-1. New version is detected automatically on startup
+1. New version is detected on startup (works even without Python installed)
 2. A notification window appears with the version info
-3. Click **Download** — the new `.exe` is downloaded to `%TEMP%`
-4. Click **Güncelle →** — a console window opens, the overlay closes, the new file replaces the old one
-5. The overlay restarts automatically
-6. ⚠️ **The TS6 API key is reset** — you will need to re-authorize in TeamSpeak once after each update
+3. Click **Update →** — the new `.exe` is downloaded to `%TEMP%`
+4. A console window opens — the overlay closes and the update is applied
+5. A **desktop shortcut** (`NooXTS Overlay.lnk`) is created automatically
+6. Use the shortcut or open the `.exe` manually to relaunch
+7. ⚠️ **The TS6 API key is reset** — re-authorize in TeamSpeak once after each update
 
 ---
 
@@ -101,13 +104,13 @@ When a new release is published on GitHub, the overlay will notify you on next l
 
 ### Adding Games
 
-1. Right-click the tray icon → **Ayarlar (Settings)**
-2. Click **Oyun Ekle (.exe)** and select your game's `.exe`
+1. Right-click the tray icon → **Settings**
+2. Click **Add Game (.exe)** and select your game's `.exe`
 3. The overlay will now show automatically when that game is running
 
 ### Repositioning the Overlay
 
-1. Right-click the tray icon → **Taşımayı Etkinleştir (Enable Dragging)**
+1. Right-click the tray icon → **Enable Dragging**
 2. Drag the overlay to your preferred position
 3. Toggle drag mode off to make it click-through again
 
