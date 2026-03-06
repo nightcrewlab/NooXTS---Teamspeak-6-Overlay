@@ -71,14 +71,14 @@ pip install websockets pystray pillow psutil
 ### Run
 
 ```bash
-python ts6_overlay.py
+python ts6_overlay_test.py
 ```
 
 ### Build executable yourself
 
 ```bash
 pip install pyinstaller
-pyinstaller NooXTSOverlay.spec
+pyinstaller ts6_overlay_test.spec
 ```
 
 The compiled `.exe` will be in the `dist/` folder.
