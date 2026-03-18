@@ -150,4 +150,11 @@ Feel free to fork the project and open pull requests for features or bug fixes.
 
 ---
 
+⚠️ Known Limitation — Exclusive Fullscreen
+
+The overlay cannot appear over games running in exclusive fullscreen (DirectX fullscreen) mode. This is a Windows limitation — exclusive fullscreen bypasses the window manager entirely, making it impossible for any overlay to render on top without DirectX-level injection (which risks anti-cheat bans).
+Recommended fix: Set your game to Borderless Windowed mode. Performance difference is negligible on modern hardware, and the overlay will work perfectly.
+
+---
+
 *Developed by NooXRii*
