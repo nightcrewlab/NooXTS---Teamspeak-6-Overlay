@@ -12,7 +12,7 @@ Your support helps keep development going 🚀
 
 # 🎙️ NooXTS — TeamSpeak 6 Overlay
 
-A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects when you're in-game and displays a real-time overlay showing only the users in **your current channel** — including nicknames, talking status, mute indicators, and screenshare indicators.
+A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects when you're in-game and displays a real-time overlay showing only the users in **your current channel** — including nicknames, talking status, mute indicators, screenshare indicators, and personalized avatar placeholders.
 
 ---
 
@@ -22,7 +22,9 @@ A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects 
 |---|---|
 | 🎮 **Smart Visibility** | Automatically shows when a game from your list is running, hides when you quit |
 | 👁️ **Always Show Mode** | Optionally keep the overlay visible even when no game is running |
-| 🔊 **Talking Indicators** | Green highlight and dot when a user is actively speaking |
+| ⌨️ **Keyboard Shortcut** | Toggle Always Show instantly with **Ctrl + `"` (key above Tab)** |
+| 🖼️ **Avatar Placeholders** | Personalized colored circle with initial for each user |
+| 🔊 **Talking Indicators** | Green highlight when a user is actively speaking |
 | 🔇 **Mute Indicators** | Visual 🔇 icon for muted users |
 | 🖥️ **Screenshare Indicators** | Purple 🖥 icon appears next to anyone sharing their screen |
 | 📡 **Channel Filtering** | Only shows users in **your exact channel** — updates live as people join or leave |
@@ -53,11 +55,26 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 
 1. Download `NooXTSOverlay.exe` from the [latest release](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest)
 2. Place it in its own dedicated folder (e.g. `C:\NooXTSOverlay\`)
-3. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
-4. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
-5. Click **Accept** in TeamSpeak
+3. Configure the TeamSpeak 6 Remote Control API port — **see below**
+4. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
+5. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
+6. Click **Accept** in TeamSpeak
 
 > ⚠️ **Important:** Always keep `NooXTSOverlay.exe` in its own folder. The overlay creates config files alongside the executable.
+
+---
+
+## 🔌 TeamSpeak 6 Remote Control API Setup
+
+The overlay connects to TeamSpeak 6 via its **Remote Control API** on port **6500**. You must configure this manually in TeamSpeak 6:
+
+1. Open **TeamSpeak 6**
+2. Go to **Settings → Remote Control API**
+3. Enable the Remote Control API
+4. Set the port to **`6500`**
+5. Save and restart TeamSpeak 6
+
+> ⚠️ **The default TS6 port may be different.** If the overlay cannot connect, double-check that the port in TeamSpeak matches **6500**. If you change the port in TeamSpeak, you will also need to update the port in the overlay's source code (`uri = "ws://127.0.0.1:6500"`).
 
 ---
 
@@ -72,7 +89,7 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 ### Install dependencies
 
 ```bash
-pip install websockets pystray pillow psutil
+pip install websockets pystray pillow psutil keyboard
 ```
 
 ### Run
@@ -123,6 +140,10 @@ When a new release is published on GitHub, the overlay will notify you automatic
 4. Use **Quick Position** buttons to snap the overlay to any corner or side
 5. Click **💾 Save Settings** to persist your changes
 
+### Always Show Shortcut
+
+Press **Ctrl + `"` (the key above Tab)** at any time to toggle Always Show mode on or off — no need to open the tray menu.
+
 ### Repositioning the Overlay
 
 1. Right-click the tray icon → **Enable Dragging**
@@ -150,10 +171,11 @@ Feel free to fork the project and open pull requests for features or bug fixes.
 
 ---
 
-⚠️ Known Limitation — Exclusive Fullscreen
+## ⚠️ Known Limitation — Exclusive Fullscreen
 
 The overlay cannot appear over games running in exclusive fullscreen (DirectX fullscreen) mode. This is a Windows limitation — exclusive fullscreen bypasses the window manager entirely, making it impossible for any overlay to render on top without DirectX-level injection (which risks anti-cheat bans).
-Recommended fix: Set your game to Borderless Windowed mode. Performance difference is negligible on modern hardware, and the overlay will work perfectly.
+
+**Recommended fix:** Set your game to **Borderless Windowed** mode. Performance difference is negligible on modern hardware, and the overlay will work perfectly.
 
 ---
 
