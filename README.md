@@ -30,7 +30,7 @@ A lightweight, modern, and smart overlay for TeamSpeak 6. Automatically detects 
 | 📡 **Channel Filtering** | Only shows users in **your exact channel** — updates live as people join or leave |
 | ⚡ **Instant Channel Detection** | Reads your current channel on startup — no need to rejoin |
 | 🔄 **Auto-Update** | Checks GitHub on startup, downloads and applies updates automatically |
-| 🎨 **Appearance Settings** | Adjust opacity, font size, and always-show mode from the Settings window |
+| 🎨 **Appearance Settings** | Adjust opacity, font size, port, and always-show mode from the Settings window |
 | 📍 **Position Presets** | Snap the overlay to 6 preset positions with one click |
 | 💾 **Position Memory** | Overlay remembers its position between sessions |
 | ⚙️ **Settings Interface** | Built-in GUI to add/remove games by selecting their `.exe` files |
@@ -55,10 +55,9 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 
 1. Download `NooXTSOverlay.exe` from the [latest release](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-Overlay/releases/latest)
 2. Place it in its own dedicated folder (e.g. `C:\NooXTSOverlay\`)
-3. Configure the TeamSpeak 6 Remote Control API port — **see below**
-4. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
-5. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
-6. Click **Accept** in TeamSpeak
+3. Launch **TeamSpeak 6** and make sure the Remote Control API is enabled
+4. Run `NooXTSOverlay.exe` — TeamSpeak will prompt you to authorize the overlay
+5. Click **Accept** in TeamSpeak
 
 > ⚠️ **Important:** Always keep `NooXTSOverlay.exe` in its own folder. The overlay creates config files alongside the executable.
 
@@ -66,15 +65,18 @@ Head to the [**Releases**](https://github.com/nightcrewlab/NooXTS---Teamspeak-6-
 
 ## 🔌 TeamSpeak 6 Remote Control API Setup
 
-The overlay connects to TeamSpeak 6 via its **Remote Control API** on port **6500**. You must configure this manually in TeamSpeak 6:
+The overlay connects to TeamSpeak 6 via its **Remote Control API**. The default port is **`5899`** (TS6 standard).
 
 1. Open **TeamSpeak 6**
 2. Go to **Settings → Remote Control API**
 3. Enable the Remote Control API
-4. Set the port to **`6500`**
-5. Save and restart TeamSpeak 6
+4. Make note of the port number shown (default is `5899`)
+5. Save and restart TeamSpeak 6 if needed
 
-> ⚠️ **The default TS6 port may be different.** If the overlay cannot connect, double-check that the port in TeamSpeak matches **6500**. If you change the port in TeamSpeak, you will also need to update the port in the overlay's source code (`uri = "ws://127.0.0.1:6500"`).
+**If your TS6 uses a different port**, you can change it in the overlay without touching the source code:
+- Open **Settings → 🎨 Appearance → API Port** and enter your port, then save
+- Or edit `ts6_config.json` directly and set `"port"` to your value
+- Restart the overlay after any port change
 
 ---
 
@@ -136,9 +138,10 @@ When a new release is published on GitHub, the overlay will notify you automatic
 
 1. Right-click the tray icon → **Settings** → **🎨 Appearance**
 2. Adjust **opacity** and **font size** using the sliders — changes apply instantly
-3. Enable **Always Show** to keep the overlay visible without a game running
-4. Use **Quick Position** buttons to snap the overlay to any corner or side
-5. Click **💾 Save Settings** to persist your changes
+3. Set the **API Port** to match your TeamSpeak 6 Remote Control API port (default: `5899`)
+4. Enable **Always Show** to keep the overlay visible without a game running
+5. Use **Quick Position** buttons to snap the overlay to any corner or side
+6. Click **💾 Save Settings** to persist your changes
 
 ### Always Show Shortcut
 
@@ -160,7 +163,7 @@ NooXTSOverlay/
 ├── NooXTSOverlay.exe     # Main application
 ├── ts6_games.json        # Your saved game list (auto-created)
 ├── ts6_key.txt           # TeamSpeak API key (auto-created, reset on update)
-└── ts6_config.json       # Appearance & position settings (auto-created)
+└── ts6_config.json       # Appearance, position & port settings (auto-created)
 ```
 
 ---
